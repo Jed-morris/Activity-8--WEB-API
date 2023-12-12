@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>Jed's Blog</title>
+<style>
+
+    *{
+      padding: 2px 2px 5px;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {
+      height: 1500px;
+      padding: 0px 5px 5px 10px;
+    }
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: azure;
+      height: 100%;
+      padding: 0px 5px 5px 5px;
+    }
+
+    .feedback {
+    display: auto;
+    padding: 10px 5px 5px 15px;
+    grid-area: feedback;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.3);
+    -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px);
+    border: blanchedalmond 1px solid;
+}
+
+  /* Added styles for scrolling */
+#postsSection {
+    max-height: 350px; /* Adjust the height as needed */
+    overflow-y: auto;
+}
+
+.like-icon {
+    color: rgb(29, 194, 29);
+}
+
+.love-icon {
+    color: red;
+}
+
+.unlike-icon {
+    color: orange;
+}
+
+.author-name {
+    color: #333; /* Change this to the desired color for author names */
+    font-weight: bold;
+  }
+
+
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: papayawhip;
+      color: blue;
+      padding: 25px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4>Jed's Blog</h4>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="index.html">Home</a></li>
+        <li><a href="sign-up_form.html">Sign-up Page</a></li>
+
+      </ul><br>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search Blog..">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+    </div>
+
+    <div class="col-sm-9">
+      <h4><small>RECENT POSTS</small></h4>
+      <hr>
+      <h2>NBA</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by Jed Morris, Oct. 13, 2023</h5>
+      <h5><span class="label label-danger">Pre-Season</span> <span class="label label-primary">Stats</span></h5><br>
+      <p>Towns scores 40, sends Timberwolves past Clippers after early ejections in tourney game</p>
+      <br>
+      <p>MINNESOTA -- — When the NBA created the In-Season Tournament as a way to inject playoff-level intensity into regular-season games, the scuffle between the Clippers and the Minnesota Timberwolves that resulted in three early ejections on Tuesday night may not have been what the league had in mind.
+         With the game still scoreless and not yet two minutes old, Clippers Draymond Green was ejected after putting Minnesota’s Rudy Gobert in a headlock. Clippers guard Klay Thompson and Timberwolves forward Jaden McDaniels, who got into a shoving match that resulted in Thompson’s jersey being ripped, were also tossed. </p>
+      <br><br>
+      
+      <h4><small>RECENT POSTS</small></h4>
+      <hr>
+      <h2>Tennis</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by Jed Alegre, Oct. 14, 2023</h5>
+      <h5><span class="label label-success">Championship</span></h5><br>
+      <p>Katerina Siniakova wins Jiangxi title in longest WTA final of 2023</p>
+      <br>
+      <p> Katerina Siniakova saved three match points to set up a stunning comeback to beat fellow Czech Marie Bouzkova 2-6, 7-5 (5), 7-6 (4) and win the Jiangxi Open in China on Sunday.
+        After losing the first set and then falling a break down in both the second and third sets, the 70th-ranked Siniakova refused to submit as she battled back to win two tiebreaker sets and claim the title in a 3-hour, 25-minute epic over the 39th-ranked Bouzkova.        
+        The match was the longest final on the WTA Tour this season and the sixth-longest tour match overall. The record for longest WTA final is 3 hours, 47 minutes, set at the 1990 Virginia Slims Championships, where Monica Seles beat Gabriela Sabatini in five sets.        
+        It's the fifth career title for Siniakova and her second of the season, after winning in Hamburg in July.</p>
+      <hr>
+
+      <div class="feedback">
+        <h4>Comment Section:</h4>
+
+          <label for="authorName">Your Name:</label> <br />
+            <input type="text" style="width: 170px;" id="authorName" name="authorName">
+        <br />
+
+          <label for="postText">Leave a Comment:</label> <br />
+           <textarea id="postText"style="width: 300px;" name="postText" rows="3"></textarea>
+       <div>
+          <button type="button" class="btn btn-success" onclick="publishPost()">Submit</button>
+        </div>
+      <br />
+          <p><span class="badge" id="postCount">0</span> Posts:</p>
+
+           <!-- Wrapped posts section in a scrolling div -->
+          <div id="postsSection" class="row">
+          <!-- Posts will be dynamically added here -->
+      </div>
+    </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid">
+  <p style="text-align: center;">All Rights Reserved. 2023.</p>
+</footer>
+
+
+  <script src="index.js"></script>
+
+</body>
+</html>
